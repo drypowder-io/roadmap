@@ -1,0 +1,414 @@
+<title>Drypowder Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+
+<style>
+  :root {
+    --bg: #eceef1;
+    --surface: #ffffff;
+    --surface-2: #f4f6f8;
+    --ink: #1a2233;
+    --ink-soft: #37414f;
+    --muted: #616a78;
+    --line: #e1e4ea;
+    --line-strong: #c9ced7;
+    --done: #2f9e6a;
+    --shadow: 0 1px 2px rgba(20,28,45,.04), 0 6px 20px rgba(20,28,45,.05);
+
+    --o-posting-bg: #e5edff; --o-posting-fg: #1f47ad; --o-posting-dot: #2f5fd0;
+    --o-buyers-bg:  #fbe6f2; --o-buyers-fg:  #97206e; --o-buyers-dot:  #c23d94;
+    --o-dealers-bg: #f7ead0; --o-dealers-fg: #855410; --o-dealers-dot: #b5811f;
+    --o-more-bg:    #dcf1e5; --o-more-fg:    #12633c; --o-more-dot:    #1f8a5b;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101219;
+      --surface: #191c24;
+      --surface-2: #14171e;
+      --ink: #e9ebf0;
+      --ink-soft: #c3c8d2;
+      --muted: #949cab;
+      --line: #282c37;
+      --line-strong: #3a3f4d;
+      --done: #4fbf8f;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.28);
+
+      --o-posting-bg: rgba(63,119,240,.16); --o-posting-fg: #a6c1ff; --o-posting-dot: #4d7bf0;
+      --o-buyers-bg:  rgba(210,79,161,.16); --o-buyers-fg:  #f2aad6; --o-buyers-dot:  #d24fa1;
+      --o-dealers-bg: rgba(190,140,50,.20); --o-dealers-fg: #e8c07d; --o-dealers-dot: #cc9a3a;
+      --o-more-bg:    rgba(45,160,110,.16); --o-more-fg:    #88e2b5; --o-more-dot:    #2fa06e;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #101219;
+    --surface: #191c24;
+    --surface-2: #14171e;
+    --ink: #e9ebf0;
+    --ink-soft: #c3c8d2;
+    --muted: #949cab;
+    --line: #282c37;
+    --line-strong: #3a3f4d;
+    --done: #4fbf8f;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.28);
+
+    --o-posting-bg: rgba(63,119,240,.16); --o-posting-fg: #a6c1ff; --o-posting-dot: #4d7bf0;
+    --o-buyers-bg:  rgba(210,79,161,.16); --o-buyers-fg:  #f2aad6; --o-buyers-dot:  #d24fa1;
+    --o-dealers-bg: rgba(190,140,50,.20); --o-dealers-fg: #e8c07d; --o-dealers-dot: #cc9a3a;
+    --o-more-bg:    rgba(45,160,110,.16); --o-more-fg:    #88e2b5; --o-more-dot:    #2fa06e;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: clamp(28px, 5vw, 60px) clamp(18px, 4vw, 44px) 72px;
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.03;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: clamp(16px, 2vw, 18px);
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 16px 0 0;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin: 26px 0 0;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+  }
+  .legend-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    align-self: center;
+    margin-right: 4px;
+  }
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+
+  .board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(14px, 1.6vw, 22px);
+    margin-top: 34px;
+    align-items: start;
+  }
+  @media (max-width: 1080px) { .board { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px)  { .board { grid-template-columns: 1fr; } }
+
+  .col-head {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding-bottom: 12px;
+    margin-bottom: 6px;
+    border-bottom: 2px solid var(--line-strong);
+  }
+  .col-delivered .col-head { border-bottom-color: var(--done); }
+  .col-now  .col-head { border-bottom-color: var(--ink); }
+  .col-next .col-head { border-bottom-color: var(--line-strong); }
+  .col-later .col-head { border-bottom: 2px dashed var(--line-strong); }
+
+  .col-head h2 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .col-head .count {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  .col-head .tick {
+    width: 17px; height: 17px; color: var(--done); flex: none;
+  }
+  .col-sub {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 10px 0 16px;
+  }
+
+  .cards { display: flex; flex-direction: column; gap: 12px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 15px 15px 16px;
+    box-shadow: var(--shadow);
+  }
+  .col-delivered .card { background: var(--surface-2); }
+  .card h3 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.22;
+    letter-spacing: -0.005em;
+    margin: 0 0 8px;
+    text-wrap: balance;
+  }
+  .card p {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin: 0 0 12px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 4px 10px 4px 9px;
+    border-radius: 999px;
+    background: var(--o-bg);
+    color: var(--o-fg);
+    white-space: nowrap;
+  }
+  .pill .dot { width: 7px; height: 7px; background: var(--o-dot); }
+
+  .o-posting { --o-bg: var(--o-posting-bg); --o-fg: var(--o-posting-fg); --o-dot: var(--o-posting-dot); }
+  .o-buyers  { --o-bg: var(--o-buyers-bg);  --o-fg: var(--o-buyers-fg);  --o-dot: var(--o-buyers-dot); }
+  .o-dealers { --o-bg: var(--o-dealers-bg); --o-fg: var(--o-dealers-fg); --o-dot: var(--o-dealers-dot); }
+  .o-more    { --o-bg: var(--o-more-bg);    --o-fg: var(--o-more-fg);    --o-dot: var(--o-more-dot); }
+
+  footer {
+    margin-top: 44px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    align-items: baseline;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  footer .strong { color: var(--ink-soft); font-weight: 500; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .card { transition: transform .15s ease, box-shadow .15s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(20,28,45,.06), 0 14px 30px rgba(20,28,45,.09); }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Drypowder · Product roadmap</p>
+    <h1>Delivered, now, next, and later</h1>
+    <p class="lede">A live look at where Drypowder payments is headed — what we've shipped recently, what's in build, and what's ahead — grouped by the outcome each bet delivers. Organized by priority, not by promised dates.</p>
+
+    <div class="legend" aria-label="Outcome key">
+      <span class="legend-label">Outcomes</span>
+      <span class="legend-item"><span class="dot" style="background:var(--o-posting-dot)"></span>Zero-touch AR posting</span>
+      <span class="legend-item"><span class="dot" style="background:var(--o-buyers-dot)"></span>Buyers pay the way they can</span>
+      <span class="legend-item"><span class="dot" style="background:var(--o-dealers-dot)"></span>Dealers get paid sooner</span>
+      <span class="legend-item"><span class="dot" style="background:var(--o-more-dot)"></span>More dealers can run Drypowder</span>
+    </div>
+  </header>
+
+  <main class="board">
+    <section class="col col-delivered">
+      <div class="col-head">
+        <svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="currentColor" opacity="0.16"/><path d="M6 10.2 8.8 13 14 7.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h2>Delivered</h2><span class="count">4</span></div>
+      <p class="col-sub">Shipped in the last 3 months</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Pay by Job</h3>
+          <p>Invoices group by job, so contractors can pay one project or several at once instead of a flat list.</p>
+          <span class="pill o-buyers"><span class="dot"></span>Buyers pay the way they can</span>
+        </article>
+        <article class="card">
+          <h3>Payment Reminders</h3>
+          <p>Buyers opt in to automated statement-time reminders, so invoices get paid before they age.</p>
+          <span class="pill o-buyers"><span class="dot"></span>Buyers pay the way they can</span>
+        </article>
+        <article class="card">
+          <h3>Integration API</h3>
+          <p>A published, self-service API that any ECI ERP can integrate against on its own timeline.</p>
+          <span class="pill o-more"><span class="dot"></span>More dealers can run Drypowder</span>
+        </article>
+        <article class="card">
+          <h3>Moov Fee Plan Migration</h3>
+          <p>Updated card processing fee plans roll out to onboarded dealers, with surcharging as an opt-in setting.</p>
+          <span class="pill o-more"><span class="dot"></span>More dealers can run Drypowder</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="col col-now">
+      <div class="col-head"><h2>Now</h2><span class="count">3</span></div>
+      <p class="col-sub">In build or in testing</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Statement Discount</h3>
+          <p>Early-pay statement discounts apply automatically at checkout, so buyers never miss the discount they earned.</p>
+          <span class="pill o-posting"><span class="dot"></span>Zero-touch AR posting</span>
+        </article>
+        <article class="card">
+          <h3>Surcharging</h3>
+          <p>Dealers can choose to pass credit card processing fees to payers, within card network rules.</p>
+          <span class="pill o-more"><span class="dot"></span>More dealers can run Drypowder</span>
+        </article>
+        <article class="card">
+          <h3>Payment portal history</h3>
+          <p>A full history of invoices, credits, debits, and payments that payers can filter, sort, and export.</p>
+          <span class="pill o-posting"><span class="dot"></span>Zero-touch AR posting</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="col col-next">
+      <div class="col-head"><h2>Next</h2><span class="count">5</span></div>
+      <p class="col-sub">Up next on the plan</p>
+      <div class="cards">
+        <article class="card">
+          <h3>PDF downloads (credits &amp; debits)</h3>
+          <p>Payers can download credit and debit records as PDFs, not just invoices, for their bookkeeping.</p>
+          <span class="pill o-buyers"><span class="dot"></span>Buyers pay the way they can</span>
+        </article>
+        <article class="card">
+          <h3>Order Deposit</h3>
+          <p>Salespeople collect an order deposit through a secure pay link, paid by card or ACH with no login.</p>
+          <span class="pill o-buyers"><span class="dot"></span>Buyers pay the way they can</span>
+        </article>
+        <article class="card">
+          <h3>Payment Posting Enrichment</h3>
+          <p>Debit adjustments, finance charges, and surcharges all post back to the ERP automatically.</p>
+          <span class="pill o-posting"><span class="dot"></span>Zero-touch AR posting</span>
+        </article>
+        <article class="card">
+          <h3>Fee details</h3>
+          <p>Every payment shows a clear fee breakdown, so deposits reconcile without a second dashboard.</p>
+          <span class="pill o-posting"><span class="dot"></span>Zero-touch AR posting</span>
+        </article>
+        <article class="card">
+          <h3>Bulk download PDFs</h3>
+          <p>One click downloads a zip of every open-item PDF, so a busy contractor saves them all at once.</p>
+          <span class="pill o-buyers"><span class="dot"></span>Buyers pay the way they can</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="col col-later">
+      <div class="col-head"><h2>Later</h2><span class="count">12</span></div>
+      <p class="col-sub">Options we may fund</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Scheduled automated posting</h3>
+          <p>Payments post automatically at a set time each day or the moment a deposit confirms, manual still available.</p>
+          <span class="pill o-posting"><span class="dot"></span>Zero-touch AR posting</span>
+        </article>
+        <article class="card">
+          <h3>Dealer-branded Click-to-pay</h3>
+          <p>A reusable, dealer-branded payment component that lives inside the ERP the sales team already uses.</p>
+          <span class="pill o-dealers"><span class="dot"></span>Dealers get paid sooner</span>
+        </article>
+        <article class="card">
+          <h3>Flexible Payment Posting</h3>
+          <p>Each dealer chooses how and when payments post: on demand, on a daily schedule, or on bank deposit.</p>
+          <span class="pill o-posting"><span class="dot"></span>Zero-touch AR posting</span>
+        </article>
+        <article class="card">
+          <h3>Account payment</h3>
+          <p>AR sends charge-account customers a payment request by text, email, or link, paid on a hosted page.</p>
+          <span class="pill o-dealers"><span class="dot"></span>Dealers get paid sooner</span>
+        </article>
+        <article class="card">
+          <h3>Discount eligibility by payment method</h3>
+          <p>Dealers can tie early-pay discount eligibility to payment method, with the choice shown at checkout.</p>
+          <span class="pill o-more"><span class="dot"></span>More dealers can run Drypowder</span>
+        </article>
+        <article class="card">
+          <h3>Credit Application Posting</h3>
+          <p>Credit memos apply back to the ERP automatically once a payment settles, ending the daily manual match.</p>
+          <span class="pill o-posting"><span class="dot"></span>Zero-touch AR posting</span>
+        </article>
+        <article class="card">
+          <h3>Display PO &amp; Job Details</h3>
+          <p>Purchase order numbers appear and are searchable in payables, so contractors reconcile without leaving.</p>
+          <span class="pill o-dealers"><span class="dot"></span>Dealers get paid sooner</span>
+        </article>
+        <article class="card">
+          <h3>Nuvei integration</h3>
+          <p>Support for Nuvei as an additional payment processor, widening the set of dealers we can serve.</p>
+          <span class="pill o-more"><span class="dot"></span>More dealers can run Drypowder</span>
+        </article>
+        <article class="card">
+          <h3>Scheduled Payments</h3>
+          <p>Customers can set payments to run on a future date, so bills are paid on time automatically.</p>
+          <span class="pill o-dealers"><span class="dot"></span>Dealers get paid sooner</span>
+        </article>
+        <article class="card">
+          <h3>Multi-bank Routing</h3>
+          <p>Payments for multi-location dealers route to each store&#x27;s own bank account automatically.</p>
+          <span class="pill o-more"><span class="dot"></span>More dealers can run Drypowder</span>
+        </article>
+        <article class="card">
+          <h3>OTP Authentication</h3>
+          <p>One-time passcode sign-in gives payers a quicker and more secure way to reach the payment portal.</p>
+          <span class="pill o-buyers"><span class="dot"></span>Buyers pay the way they can</span>
+        </article>
+        <article class="card">
+          <h3>Partial account balance payment</h3>
+          <p>Customers can pay any amount they can manage, applied oldest-first, so a partial payment is never blocked.</p>
+          <span class="pill o-buyers"><span class="dot"></span>Buyers pay the way they can</span>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span class="strong">Outcomes, not dates.</span>
+    <span>Mirrors our internal roadmap — updated automatically.</span>
+    <span>Last updated August 25, 2026.</span>
+  </footer>
+</div>
