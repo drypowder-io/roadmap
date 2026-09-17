@@ -20,6 +20,7 @@
     --o-buyers-bg:  #fbe6f2; --o-buyers-fg:  #97206e; --o-buyers-dot:  #c23d94;
     --o-dealers-bg: #f7ead0; --o-dealers-fg: #855410; --o-dealers-dot: #b5811f;
     --o-more-bg:    #dcf1e5; --o-more-fg:    #12633c; --o-more-dot:    #1f8a5b;
+    --o-manage-bg:  #ebe6fb; --o-manage-fg:  #4a2a91; --o-manage-dot:  #6b41cf;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -39,6 +40,7 @@
       --o-buyers-bg:  rgba(210,79,161,.16); --o-buyers-fg:  #f2aad6; --o-buyers-dot:  #d24fa1;
       --o-dealers-bg: rgba(190,140,50,.20); --o-dealers-fg: #e8c07d; --o-dealers-dot: #cc9a3a;
       --o-more-bg:    rgba(45,160,110,.16); --o-more-fg:    #88e2b5; --o-more-dot:    #2fa06e;
+      --o-manage-bg:  rgba(122,72,222,.18); --o-manage-fg:  #c4aaf7; --o-manage-dot:  #8259e3;
     }
   }
 
@@ -58,6 +60,7 @@
     --o-buyers-bg:  rgba(210,79,161,.16); --o-buyers-fg:  #f2aad6; --o-buyers-dot:  #d24fa1;
     --o-dealers-bg: rgba(190,140,50,.20); --o-dealers-fg: #e8c07d; --o-dealers-dot: #cc9a3a;
     --o-more-bg:    rgba(45,160,110,.16); --o-more-fg:    #88e2b5; --o-more-dot:    #2fa06e;
+    --o-manage-bg:  rgba(122,72,222,.18); --o-manage-fg:  #c4aaf7; --o-manage-dot:  #8259e3;
   }
 
   * { box-sizing: border-box; }
@@ -276,6 +279,7 @@
   .o-buyers  { --o-bg: var(--o-buyers-bg);  --o-fg: var(--o-buyers-fg);  --o-dot: var(--o-buyers-dot); }
   .o-dealers { --o-bg: var(--o-dealers-bg); --o-fg: var(--o-dealers-fg); --o-dot: var(--o-dealers-dot); }
   .o-more    { --o-bg: var(--o-more-bg);    --o-fg: var(--o-more-fg);    --o-dot: var(--o-more-dot); }
+  .o-manage  { --o-bg: var(--o-manage-bg);  --o-fg: var(--o-manage-fg);  --o-dot: var(--o-manage-dot); }
 
   footer {
     margin-top: 44px;
@@ -304,10 +308,11 @@
 
     <div class="legend" aria-label="Outcome key">
       <span class="legend-label">Outcomes</span>
-      <span class="legend-item"><span class="dot" style="background:var(--o-posting-dot)"></span>Zero-touch AR posting</span>
-      <span class="legend-item"><span class="dot" style="background:var(--o-buyers-dot)"></span>Buyers pay the way they can</span>
-      <span class="legend-item"><span class="dot" style="background:var(--o-dealers-dot)"></span>Dealers get paid sooner</span>
+      <span class="legend-item"><span class="dot" style="background:var(--o-posting-dot)"></span>Zero-touch payment processing</span>
+      <span class="legend-item"><span class="dot" style="background:var(--o-buyers-dot)"></span>Payers pay the way their business works</span>
+      <span class="legend-item"><span class="dot" style="background:var(--o-dealers-dot)"></span>Dealers collect payment at every billing moment</span>
       <span class="legend-item"><span class="dot" style="background:var(--o-more-dot)"></span>More dealers can run Drypowder</span>
+      <span class="legend-item"><span class="dot" style="background:var(--o-manage-dot)"></span>Payers manage their account without calling the dealer</span>
     </div>
   </header>
 
@@ -319,12 +324,12 @@
         <article class="card">
           <h3>Payment portal history</h3>
           <p>A full history of invoices, credits, debits, and payments that payers can filter, sort, and export.</p>
-          
+          <span class="pill o-manage"><span class="dot"></span>Payers manage their account without calling the dealer</span>
         </article>
         <article class="card">
-          <h3>Pay by Job (+ Pay by Statement)</h3>
+          <h3>Pay by Job and Pay by Statement</h3>
           <p>Invoices group by job or statement, so contractors can pay a whole project or a whole month at once instead of picking line by line.</p>
-          
+          <span class="pill o-buyers"><span class="dot"></span>Payers pay the way their business works</span>
         </article>
         <article class="card">
           <h3>Surcharging</h3>
@@ -334,7 +339,7 @@
         <article class="card">
           <h3>Payment Reminders</h3>
           <p>Buyers opt in to automated statement-time reminders, so invoices get paid before they age.</p>
-          
+          <span class="pill o-buyers"><span class="dot"></span>Payers pay the way their business works</span>
         </article>
         <article class="card">
           <h3>Integration API</h3>
@@ -349,7 +354,7 @@
         <article class="card">
           <h3>Statement Discount</h3>
           <p>Early-pay statement discounts apply automatically at checkout, so buyers never miss the discount they earned.</p>
-          
+          <span class="pill o-posting"><span class="dot"></span>Zero-touch payment processing</span>
         </article>
       </div>
     </section>
@@ -361,12 +366,12 @@
         <article class="card">
           <h3>Payer document downloads</h3>
           <p>Payers download their own invoices, credit memos, and debit memos as PDFs, individually or all at once.</p>
-          
+          <span class="pill o-manage"><span class="dot"></span>Payers manage their account without calling the dealer</span>
         </article>
         <article class="card">
           <h3>Fee details</h3>
           <p>Every payment shows a clear fee breakdown, so deposits reconcile without a second dashboard.</p>
-          
+          <span class="pill o-posting"><span class="dot"></span>Zero-touch payment processing</span>
         </article>
       </div>
     </section>
@@ -383,17 +388,17 @@
         <article class="card">
           <h3>Order Deposit</h3>
           <p>Salespeople collect an order deposit through a secure pay link, paid by card or ACH with no login.</p>
-          
+          <span class="pill o-buyers"><span class="dot"></span>Payers pay the way their business works</span>
         </article>
         <article class="card">
           <h3>Flexible Payment Posting</h3>
           <p>Each dealer chooses how and when payments post: on demand, on a daily schedule, or on bank deposit.</p>
-          
+          <span class="pill o-posting"><span class="dot"></span>Zero-touch payment processing</span>
         </article>
         <article class="card">
-          <h3>Payment Posting Enrichment (credits, debits, finance charges, surcharges)</h3>
+          <h3>Payment Posting Enrichment</h3>
           <p>Credit memos, debit adjustments, finance charges, and surcharges all post back to the ERP automatically, ending the daily manual match.</p>
-          
+          <span class="pill o-posting"><span class="dot"></span>Zero-touch payment processing</span>
         </article>
       </div>
     </section>
@@ -405,7 +410,7 @@
         <article class="card">
           <h3>Scheduled automated posting</h3>
           <p>Payments post automatically at a set time each day or the moment a deposit confirms, manual still available.</p>
-          
+          <span class="pill o-posting"><span class="dot"></span>Zero-touch payment processing</span>
         </article>
         <article class="card">
           <h3>Nuvei integration</h3>
@@ -415,7 +420,7 @@
         <article class="card">
           <h3>Partial account balance payment</h3>
           <p>Customers can pay any amount they can manage, applied oldest-first, so a partial payment is never blocked.</p>
-          
+          <span class="pill o-buyers"><span class="dot"></span>Payers pay the way their business works</span>
         </article>
         <article class="card">
           <h3>Multi-bank payment routing</h3>
@@ -425,12 +430,12 @@
         <article class="card">
           <h3>OTP Authentication</h3>
           <p>One-time passcode sign-in gives payers a quicker and more secure way to reach the payment portal.</p>
-          
+          <span class="pill o-buyers"><span class="dot"></span>Payers pay the way their business works</span>
         </article>
         <article class="card">
           <h3>Scheduled Payments</h3>
           <p>Customers can set payments to run on a future date, so bills are paid on time automatically.</p>
-          
+          <span class="pill o-dealers"><span class="dot"></span>Dealers collect payment at every billing moment</span>
         </article>
         <article class="card">
           <h3>Balance Forward Accounts</h3>
@@ -440,17 +445,17 @@
         <article class="card">
           <h3>Account payment</h3>
           <p>AR sends charge-account customers a payment request by text, email, or link, paid on a hosted page.</p>
-          
+          <span class="pill o-dealers"><span class="dot"></span>Dealers collect payment at every billing moment</span>
         </article>
         <article class="card">
           <h3>Display PO &amp; Job Details</h3>
           <p>Purchase order numbers appear and are searchable in payables, so contractors reconcile without leaving.</p>
-          
+          <span class="pill o-dealers"><span class="dot"></span>Dealers collect payment at every billing moment</span>
         </article>
         <article class="card">
-          <h3>Dealer-branded Click-to-pay</h3>
+          <h3>Dealer-branded payment links</h3>
           <p>A reusable, dealer-branded payment component that lives inside the ERP the sales team already uses.</p>
-          
+          <span class="pill o-dealers"><span class="dot"></span>Dealers collect payment at every billing moment</span>
         </article>
       </div>
     </section>
