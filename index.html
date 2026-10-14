@@ -21,6 +21,7 @@
     --o-dealers-bg: #f7ead0; --o-dealers-fg: #855410; --o-dealers-dot: #b5811f;
     --o-more-bg:    #dcf1e5; --o-more-fg:    #12633c; --o-more-dot:    #1f8a5b;
     --o-manage-bg:  #ebe6fb; --o-manage-fg:  #4a2a91; --o-manage-dot:  #6b41cf;
+    --o-fit-bg:     #d9f0f2; --o-fit-fg:     #135f68; --o-fit-dot:     #1f8c99;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -41,6 +42,7 @@
       --o-dealers-bg: rgba(190,140,50,.20); --o-dealers-fg: #e8c07d; --o-dealers-dot: #cc9a3a;
       --o-more-bg:    rgba(45,160,110,.16); --o-more-fg:    #88e2b5; --o-more-dot:    #2fa06e;
       --o-manage-bg:  rgba(122,72,222,.18); --o-manage-fg:  #c4aaf7; --o-manage-dot:  #8259e3;
+      --o-fit-bg:     rgba(40,160,175,.16); --o-fit-fg:     #8ad9e2; --o-fit-dot:     #2aa3b2;
     }
   }
 
@@ -61,6 +63,7 @@
     --o-dealers-bg: rgba(190,140,50,.20); --o-dealers-fg: #e8c07d; --o-dealers-dot: #cc9a3a;
     --o-more-bg:    rgba(45,160,110,.16); --o-more-fg:    #88e2b5; --o-more-dot:    #2fa06e;
     --o-manage-bg:  rgba(122,72,222,.18); --o-manage-fg:  #c4aaf7; --o-manage-dot:  #8259e3;
+    --o-fit-bg:     rgba(40,160,175,.16); --o-fit-fg:     #8ad9e2; --o-fit-dot:     #2aa3b2;
   }
 
   * { box-sizing: border-box; }
@@ -280,6 +283,7 @@
   .o-dealers { --o-bg: var(--o-dealers-bg); --o-fg: var(--o-dealers-fg); --o-dot: var(--o-dealers-dot); }
   .o-more    { --o-bg: var(--o-more-bg);    --o-fg: var(--o-more-fg);    --o-dot: var(--o-more-dot); }
   .o-manage  { --o-bg: var(--o-manage-bg);  --o-fg: var(--o-manage-fg);  --o-dot: var(--o-manage-dot); }
+  .o-fit     { --o-bg: var(--o-fit-bg);     --o-fg: var(--o-fit-fg);     --o-dot: var(--o-fit-dot); }
 
   footer {
     margin-top: 44px;
@@ -309,8 +313,11 @@
     <div class="legend" aria-label="Outcome key">
       <span class="legend-label">Outcomes</span>
       <span class="legend-item"><span class="dot" style="background:var(--o-more-dot)"></span>Every signed dealer collects through Drypowder</span>
-      <span class="legend-item"><span class="dot" style="background:var(--o-dealers-dot)"></span>Payers are asked to pay at every billing moment</span>
-      <span class="legend-item"><span class="dot" style="background:var(--o-buyers-dot)"></span>Payers pay the way their business works</span>
+      <span class="legend-item"><span class="dot" style="background:var(--o-dealers-dot)"></span>Every payer can pay in one step when they&#x27;re ready</span>
+      <span class="legend-item"><span class="dot" style="background:var(--o-buyers-dot)"></span>Payers pay their first bill through Drypowder</span>
+      <span class="legend-item"><span class="dot" style="background:var(--o-posting-dot)"></span>Payers keep paying through Drypowder</span>
+      <span class="legend-item"><span class="dot" style="background:var(--o-manage-dot)"></span>Collect payment on orders</span>
+      <span class="legend-item"><span class="dot" style="background:var(--o-fit-dot)"></span>More dealers can use Drypowder</span>
     </div>
   </header>
 
@@ -322,7 +329,7 @@
         <article class="card">
           <h3>Statement Discount</h3>
           <p>Early-pay statement discounts apply automatically at checkout, so buyers never miss the discount they earned.</p>
-          <span class="pill o-buyers"><span class="dot"></span>Payers pay the way their business works</span>
+          <span class="pill o-buyers"><span class="dot"></span>Payers pay their first bill through Drypowder</span>
         </article>
         <article class="card">
           <h3>Surcharging</h3>
@@ -332,17 +339,17 @@
         <article class="card">
           <h3>Payment portal history</h3>
           <p>A full history of invoices, credits, debits, and payments that payers can filter, sort, and export.</p>
-          <span class="pill o-buyers"><span class="dot"></span>Payers pay the way their business works</span>
+          <span class="pill o-posting"><span class="dot"></span>Payers keep paying through Drypowder</span>
         </article>
         <article class="card">
           <h3>Payment Reminders</h3>
-          <p>Buyers opt in to automated statement-time reminders, so invoices get paid before they age.</p>
-          <span class="pill o-dealers"><span class="dot"></span>Payers are asked to pay at every billing moment</span>
+          <p>Dealers can turn on automated reminders that go out with each statement, so invoices get paid before they age.</p>
+          <span class="pill o-dealers"><span class="dot"></span>Every payer can pay in one step when they&#x27;re ready</span>
         </article>
         <article class="card">
           <h3>Integration API</h3>
           <p>A published, self-service API that any ECI ERP can integrate against on its own timeline.</p>
-          <span class="pill o-more"><span class="dot"></span>Every signed dealer collects through Drypowder</span>
+          <span class="pill o-fit"><span class="dot"></span>More dealers can use Drypowder</span>
         </article>
         <article class="card">
           <h3>Moov Fee Plan Migration</h3>
@@ -352,7 +359,7 @@
         <article class="card">
           <h3>Pay by Job and Pay by Statement</h3>
           <p>Invoices group by job or statement, so contractors can pay a whole project or a whole month at once instead of picking line by line.</p>
-          <span class="pill o-buyers"><span class="dot"></span>Payers pay the way their business works</span>
+          <span class="pill o-buyers"><span class="dot"></span>Payers pay their first bill through Drypowder</span>
         </article>
       </div>
     </section>
@@ -364,7 +371,7 @@
         <article class="card">
           <h3>Payer document downloads</h3>
           <p>Payers download their own invoices, credit memos, and debit memos as PDFs, individually or all at once.</p>
-          <span class="pill o-buyers"><span class="dot"></span>Payers pay the way their business works</span>
+          <span class="pill o-buyers"><span class="dot"></span>Payers pay their first bill through Drypowder</span>
         </article>
         <article class="card">
           <h3>Fee details</h3>
@@ -384,12 +391,12 @@
         <article class="card">
           <h3>Order Deposit</h3>
           <p>Salespeople collect an order deposit through a secure pay link, paid by card or ACH with no login.</p>
-          <span class="pill o-dealers"><span class="dot"></span>Payers are asked to pay at every billing moment</span>
+          <span class="pill o-manage"><span class="dot"></span>Collect payment on orders</span>
         </article>
         <article class="card">
           <h3>Nuvei integration</h3>
           <p>Support for Nuvei as an additional payment processor, widening the set of dealers we can serve.</p>
-          <span class="pill o-more"><span class="dot"></span>Every signed dealer collects through Drypowder</span>
+          <span class="pill o-fit"><span class="dot"></span>More dealers can use Drypowder</span>
         </article>
       </div>
     </section>
@@ -411,7 +418,7 @@
         <article class="card">
           <h3>Balance Forward Accounts</h3>
           <p>Dealers who bill on a running statement balance rather than invoice-by-invoice can onboard to Drypowder.</p>
-          <span class="pill o-more"><span class="dot"></span>Every signed dealer collects through Drypowder</span>
+          <span class="pill o-fit"><span class="dot"></span>More dealers can use Drypowder</span>
         </article>
       </div>
     </section>
@@ -423,12 +430,12 @@
         <article class="card">
           <h3>Account balance payment</h3>
           <p>Customers can pay any amount they can manage, applied oldest-first, so a partial payment is never blocked.</p>
-          <span class="pill o-buyers"><span class="dot"></span>Payers pay the way their business works</span>
+          <span class="pill o-buyers"><span class="dot"></span>Payers pay their first bill through Drypowder</span>
         </article>
         <article class="card">
           <h3>Account payment links</h3>
           <p>AR sends charge-account customers a payment request by text, email, or link, paid on a hosted page.</p>
-          <span class="pill o-dealers"><span class="dot"></span>Payers are asked to pay at every billing moment</span>
+          <span class="pill o-dealers"><span class="dot"></span>Every payer can pay in one step when they&#x27;re ready</span>
         </article>
         <article class="card">
           <h3>Scheduled automated posting</h3>
@@ -438,17 +445,17 @@
         <article class="card">
           <h3>Display PO &amp; Job Details</h3>
           <p>Purchase order numbers appear and are searchable in payables, so contractors reconcile without leaving.</p>
-          <span class="pill o-buyers"><span class="dot"></span>Payers pay the way their business works</span>
+          <span class="pill o-buyers"><span class="dot"></span>Payers pay their first bill through Drypowder</span>
         </article>
         <article class="card">
           <h3>Scheduled Payments</h3>
           <p>Customers can set payments to run on a future date, so bills are paid on time automatically.</p>
-          <span class="pill o-dealers"><span class="dot"></span>Payers are asked to pay at every billing moment</span>
+          <span class="pill o-posting"><span class="dot"></span>Payers keep paying through Drypowder</span>
         </article>
         <article class="card">
           <h3>OTP Authentication</h3>
           <p>One-time passcode sign-in gives payers a quicker and more secure way to reach the payment portal.</p>
-          <span class="pill o-buyers"><span class="dot"></span>Payers pay the way their business works</span>
+          <span class="pill o-dealers"><span class="dot"></span>Every payer can pay in one step when they&#x27;re ready</span>
         </article>
       </div>
     </section>
